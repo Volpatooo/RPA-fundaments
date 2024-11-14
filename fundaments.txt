@@ -2,3 +2,11 @@ RPA serve para poupar tempo dos funcionarios e eles podem pensar em outras coisa
 torns o processo mais eficiente
 automacao de processos completos
 automacao de processos repetitivos
+py -m venv ven_fundamntos
+nome_da_pasta\scripts\activate
+pip install -r requirements.txt (sempre dar esse comando dentro de venv ativado) instala os arquivos que forma botados no pip freeze > requirements.txt
+é comum criarmos mais ambientes com dependencias diferents bibliotecas instaladas
+code . abre o vscode 
+explorer . abre a pasta certa no vscode
+aqui criamos dois ambientes separados
+proxima aula criar o ambiente env dnv
