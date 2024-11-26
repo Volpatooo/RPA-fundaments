@@ -25,9 +25,22 @@ async def home(request: Request):
 async def get_weather(request: Request, city: str = Form(...)):
     logger.info(f"Solicitação de previsão do tempo para a cidade: {city}")
     try:
-        # Passo 1: Obter latitude e longitude da cidade
+        geocode_paramers = {
+            "q": city,
+            "appid": API_KEY,
+            "limit": 1
+        }
+
+        geocode_response = request.get(GEOCODE_URL, params=geocode_paramers)
+        geocode_response.raise_for_status()
+        geocode_data = geocode_response.json()
         
-        # Passo 2: Obter dados do tempo usando latitude e longitude
+        if not geocode_data:
+            logger.warning(f"Cidade '{city}' não encontrada.")
+            return templates.TemplateResponse(
+                "error.html",
+                
+            )
         
         # Extração de dados relevantes para exibição
 
